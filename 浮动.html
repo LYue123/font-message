@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+</head>
+<body>
+    <h1>本文的主要内容</h1>
+    <ul>
+        <li>标准文档流</li>
+        <ul>
+            <li>标准文档流的特性</li>
+            <li>行内元素和块级元素</li>
+            <li>行内元素和块级元素相互转换</li>
+        </ul>
+        <li>浮动的性质</li>
+        <li>浮动的清除</li>
+        <li>浏览器的兼容性问题</li>
+        <li>浮动中margin相关</li>
+        <li>关于margin的IE6兼容问题</li>
+    </ul>
+    <div>
+        <h2>标准文档流</h2>
+        <ol>
+            <li>标准文档流的特性</li>
+            <ul>
+                <li>空白折叠现象（无论写多少换行和空格，默认就是一个空格）</li>
+                <li>高矮不齐，默认底部对齐</li>
+                <li>一行不够自动换行</li>
+            </ul>
+            <li>行内元素和块级元素</li>
+            <ul>
+                <li>css将标签分为两种：行内元素，块级元素</li>
+                <li>html将元素分为两种：文本级元素，容器级元素</li>
+                <p>
+                    <img src="./标签分类.png" alt="标签分类">
+                    <hr/>
+                    <i>除了p标签是块级元素元素外，其他的文本级元素都是行内元素，容器级元素都是块级元素</i>
+                </p>
+                <li>行内元素和块级元素的区别</li>
+                <ol>
+                    <li>行内元素与其他行内元素并排组合，不能设置宽，高，宽度就是文字的宽度</li>
+                    <li>块级元素独占一排，可以设置宽，高，如果不设置，宽度默认为父亲的100%</li>
+                </ol>
+            </ul>
+            <li>行内元素和块级元素相互转换</li>
+            <p>使用dispaly属性对元素进行转换，inline block 转换后就拥有了所在元素的属性</p>
+            <li>浮动的性质</li>
+            <ul>
+                <li>浮动的元素脱里标准流渲染，相对于父亲渲染</li>
+                <li>同一个父亲下的浮动元素互相依靠，宽度不够会换行</li>
+                <li>浮动的元素有字围效果（标准流中的文字不会被浮动的盒子挡住）</li>
+                <li>收缩（一个浮动元素，如果没有设置宽度，则自动收缩为内容的宽度）</li>
+                <i>一旦一个元素浮动，就能够并排了，并且能够设置宽高，无论是div 还是span 浮动后不区分行内，块元素</i>
+            </ul>
+            <a href="./float_test.html">练习题</a>
+        </ol>
+    </div>
+</body>
+</html>
