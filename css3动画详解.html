@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画详解</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            transition: width 2s linear 0s;
+            margin: 0 auto;
+        }
+        .box1:hover {
+            width: 500px;
+            background-color: green;
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+            transition: all 1s;
+            margin: 0 auto;
+        }
+        .box3 {
+            width: 200px;
+            height: 200px;
+            transition: all 1s;
+            margin: 0 auto;
+        }
+        .box4 {
+            background-color: green;
+            position: relative;
+            height: 1000px;
+        }
+        .rocket {
+            position: absolute;
+            left: 100px;
+            top: 600px;
+            transform: rotate(45deg);
+            transition: all 2s ease;
+        }
+        .box4:hover .rocket{
+            transform: translate(500px, -500px) rotate(45deg);
+        }
+        .box3:hover {
+            transform: translate(50%,-50%) scale(2,2);
+        }
+        .box2:hover {
+            transform: scale(2,2);
+        }
+        .box5 {
+            width: 250px;
+            height: 250px;
+            border: 1px dashed red;
+            margin: 100px auto;
+            border-radius: 50%;
+            position: relative;
+            transform-style: preserve-3d;
+
+            animation: gun 8s linear infinite;
+        }
+        .box5>div {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 250px;
+            position: absolute;
+        }
+        .up {
+            background: rgba(255, 0, 255, 0.3);
+            transform: rotateX(90deg) translateZ(125px);
+        }
+        .down {
+            background: rgba(99, 66, 33, 0.3);
+            transform: rotateX(-90deg) translateZ(125px);
+        }
+        .forward {
+            background: rgba(255, 255, 0, 0.3);
+            transform: translateZ(125px);
+        }
+
+        .back {
+            background: rgba(0, 255, 255, 0.3);
+            transform: translateZ(-125px);
+        }
+        .left {
+            background-color: rgba(255, 0, 0, 0.3);
+            /* 变换中心*/
+            transform-origin: left;
+            /* 变换*/
+            transform: rotateY(90deg) translateX(-125px);
+        }
+
+        .right {
+            background: rgba(0, 0, 255, 0.3);
+            transform-origin: right;
+            /* 变换*/
+            transform: rotateY(90deg) translateX(125px);
+        }
+
+        @keyframes gun {
+            0% {
+                transform: rotateX(0) rotateY(0)
+            } 
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>过渡 transition</li>
+        <li>2D转换 transform</li>
+        <li>3D转换 transform</li>
+        <li>动画 animation</li>
+    </ul>
+    <div>
+        <h2>过渡 transition</h2>
+        <ul>
+            <li>transition-property:all/width all表示所有都过渡</li>
+            <li>transition-durtion: 1s 过渡发生时间</li>
+            <li>transition-timing-function: linear/ease/ease-in/ease-out/ease-in-out 运动曲线</li>
+            <li>transition-delay: 1s; 过渡延迟 多长时间后再进行</li>
+            <li>transition: 复合属性 按上面的顺序</li>
+        </ul>
+        <div>
+            <h2>实现盒子的宽度变动</h2>
+            <div class="box1">
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>2D转换</h2>
+        <ul>
+            <li>缩放 transform:scale(x,y) 大于1表示放大</li>
+            <div class="box2">
+                <img src="./权重.png" alt="" width="200px" height="200px" >
+            </div>
+            <li>位移 translate(x,y) 正值像右向下</li>
+            <div class="box3">
+                <img src="./权重.png" alt="" width="200px" height="200px" >
+            </div>
+            <li>旋转 transform: rotate(角度) 正值顺时针 负值逆时针 单位deg</li>
+            <div class="box4">
+                <img  class="rocket" src="./20180208-rocket.png" alt="" height="120px">
+            </div>
+            <li>旋转的坐标远点 默认的中心 transform-origin: 水平坐标 垂直坐标;</li>
+        </ul>
+    </div>
+    <div>
+        <h2>3D转换</h2>
+        <ul>
+            <li>旋转 transform: rotateX rotateY rotateZ (x y z 轴旋转）</li>
+            <i>留一个练习题，自己做一个精灵图出来</i>
+            <li>移动 transform： transalteX transalteY transalteZ</li>
+            <i>translateZ必须配合透视来使用,给移动的元素的副元素增加透视属性</i>
+            <li>透视 perspective: 500px;</li>
+            <p>两种写法 作为一个属性，设置给父元素，作用于所有3D转换的子元素；作为 transform 属性的一个值，做用于元素自身。</p>
+
+        </ul>
+        <div>
+            <h2>动画</h2>
+            <ul>
+                <li>定义动画的步骤</li>
+                <ol>
+                    <li>先通过@keyframes定义动画</li>
+                    <li>将这段动画通过百分比，分割成多个节点；然后各节点中分别定义各属性；</li>
+                    <li>在指定元素里，通过 animation 属性调用动画。</li>
+                    <i>定义动画：
+                        @keyframes 动画名{
+                            from{ 初始状态 }
+                            to{ 结束状态 }
+                        }
+                
+                     调用：
+                      animation: 动画名称 持续时间；
+                      animation: 定义的动画名称 持续时间  执行次数  是否反向  运动曲线 延迟执行。(infinite 表示无限次)</i>
+                </ol>
+            </ul>
+        </div>
+        <div class="box5">
+            <div class="up">上</div>
+            <div class="down">下</div>
+            <div class="left">左</div>
+            <div class="right">右</div>
+            <div class="forward">前</div>
+            <div class="back">后</div>
+        </div>
+    </div>
+</body>
+</html>

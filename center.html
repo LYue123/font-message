@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>center</title>
+    <style>
+        .box1 {
+            height: 40px;
+            width: 200px;
+            background-color: greenyellow;
+            text-align: center;
+            line-height: 40px;
+        }
+        .box2,.box3 {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            background-color: grey;
+        }
+        .center1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+            background-color: indianred;
+        }
+        .center2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: indianred;
+        }
+        .box4 {
+            width: 300px;
+            height: 300px;
+            background-color: khaki;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .center3 {
+            background-color: lawngreen;
+        }
+        .center4 {
+            background-color: lightsalmon;
+        }
+        .center5 {
+            background-color: rebeccapurple;
+        }
+        .box5 {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            background-color: rebeccapurple;
+        }
+        .center6 {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>实现让一个元素水平垂直居中</h1>
+    <ol>
+        <li>行内元素</li>
+        <li>块级元素</li>
+    </ol>
+    <div>
+        <h2>行内元素</h2>
+        <p>水平居中：可对父元素增加text-align: center; 让文字的行高(line-height)等于盒子的高度即可实现单行文本垂直居中
+        </p>
+        <div class="box1">
+            <span>span居中</span>
+        </div>
+    </div>
+    <div>
+        <h2>块级元素</h2>
+        <p>实现盒子中的块级元素水平居中就是 margin：0 auto</p>
+        <ul>
+            <li>绝对定位+margin（不推荐）</li>
+            <p>这种情况下需要已知要居中的盒子的宽高,例如下面 需要指定小盒子的宽高</p>
+            <div class="box2">
+                <div class="center1">
+                    宽100px 高100px
+                </div>
+            </div>
+            <li>绝对定位+translate (无需设置子盒子的宽高）推荐</li>
+            <div class="box3">
+                <p class="center2">
+                    没有设置宽高，完全是内容的高度
+                </p>
+            </div>
+            <li>flex布局</li>
+            <p>给父元素增加属性 justify-content : center;水平居中；align-items：center 垂直居中，弊端对所有子元素都生效，无法针对某一个</p>
+            <div class="box4">
+                <p class="center3">我是第一个元素</p>
+                <p class="center4">我是第二个元素</p>
+                <p class="center5">我是第三个元素</p>
+            </div>
+            <li>flex布局+margin</li>
+            <p>父元素是flex 子元素是margin：auto</p>
+            <div class="box5">
+                <p class="center6">我的margin是auto</p>
+                <p>无关元素</p>
+            </div>
+        </ul>
+    </div>
+</body>
+</html>

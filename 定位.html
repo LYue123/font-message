@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位</title>
+</head>
+<body>
+    <h1>定位</h1>
+    <ul>
+        <li>相对定位</li>
+        <li>绝对定位</li>
+        <li>固定定位</li>
+    </ul>
+    <div>
+        <h2>相对定位</h2>
+        <p>使用方法：poistion: relative; left/right/top/bottom</p>
+        <p>相对定位不脱标</p>
+        <p>用途：元素位置微调，给绝对定位做参考，子绝父相</p>
+        <p>left盒子右移，top盒子下移，负数表示相反方向</p>
+    </div>
+    <div>
+        <h2>绝对定位</h2>
+        <ul>
+            <li>绝对定位脱标</li>
+            <li>绝对定位的参考点</li>
+            <p>如果元素的父辈元素没有定位，此时绝对定位是相对于首屏（用户看到的屏幕）top即以首屏左上角为参考，bottom为左下角</p>
+            <p>一个绝对定位的元素，如果父辈元素中也出现了已定位（无论是绝对定位、相对定位，还是固定定位）的元素，那么将以父辈这个元素，为参考点。</p>
+            <i>要听最近的已定位的元素，绝对定位的元素脱离标准流，无法参考盒子的padding</i>
+            <p>让绝对定位的盒子在父亲中居中使用 left：50%；margin-left:负的宽度的一半</p>
+        </ul>
+    </div>
+    <div>
+        <h2>固定定位</h2>
+        <p>固定定位：就是相对浏览器窗口进行定位。无论页面如何滚动，这个盒子显示的位置不变。</p>
+        z-index属性
+        <p>（1）属性值大的位于上层，属性值小的位于下层。
+
+            （2）z-index值没有单位，就是一个正整数。默认的z-index值是0。
+            
+            （3）如果大家都没有z-index值，或者z-index值一样，那么在HTML代码里写在后面，谁就在上面能压住别人。定位了的元素，永远能够压住没有定位的元素。
+            
+            （4）只有定位了的元素，才能有z-index值。也就是说，不管相对定位、绝对定位、固定定位，都可以使用z-index值。而浮动的元素不能用。
+            
+            （5）从父现象：父亲怂了，儿子再牛逼也没用。意思是，如果父亲1比父亲2大，那么，即使儿子1比儿子2小，儿子1也能在最上层。</p>
+    </div>
+</body>
+</html>

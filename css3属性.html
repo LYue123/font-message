@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css属性</title>
+    <style>
+        .font {
+            font-size: 100px;
+            text-align: center;
+            font-family: "Microsoft Yahei";
+            font-weight: bold;
+            color: #666;
+            background-color: #666;
+        }
+        .ao {
+            text-shadow: -1px -1px 1px #000,1px 1px 1px #fff;
+        }
+        .to {
+            text-shadow: -1px -1px 1px #fff,1px 1px 1px #000
+        }
+    </style>
+</head>
+<body>
+    <h1>css属性详解</h1>
+    <ul>
+        <li>文本</li>
+        <li>盒模型中的box-sizing属性</li>
+        <li>边框</li>
+        <li>背景属性</li>
+        <li>渐变</li>
+    </ul>
+    <div>
+        <h2>文本</h2>
+        <ul>
+            <li>text-shadow：水平位移 垂直位移 模糊程度 阴影颜色</li>
+            <p style="text-shadow: 12px 10px 22px blue;">我要粉色阴影</p>
+            <li>凹凸文字 text-shadow可以设置多个阴影 用，隔开</li>
+            <p class="to font">CSS</p>
+            <p class="ao font">CSS</p>
+        </ul>
+    </div>
+    <div>
+        <h2>box-sizing属性</h2>
+        <p>允许指定盒子宽高的计算方式</p>
+        <p>外加模式：box-sizing: content-size,此时设置的宽高，即为内容的宽，高，盒子的实际宽度 = 设置的width+padding+box，pading border改变后，内容不变，实际的宽度会变化</p>
+        <p>内减模式：box-sizing: border-size,此时设置的宽 高即为盒子的实际宽高，内容的宽度 = width - padding - border 实际宽度固定，内容的宽度受其他因素影响</p>
+    </div>
+    <div>
+        <h2>边框</h2>
+        <ul>
+            <li>边框圆角 border-radius：水平半径 垂直半径 两者一样就是圆，不一样就是椭圆</li>
+            <li>边框阴影 box-shadow：水平位移 垂直位移 模糊程度（不能为负值） 阴影大小 阴影颜色 内阴影（inset）</li>
+            <i>注意设置阴影 不会影响盒子的宽度，即不会影响兄弟的布局</i>
+            <li>边框图片 border-image</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹窗实现</title>
+    <style>
+        .pop_windows {
+            position:fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+        .pop_mask {
+            position:fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: grey;
+        }
+        .pop_content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white
+        }
+        .content_box,.content_close{
+            margin: 0 auto;
+            text-align: center;
+        }
+        .content_box {
+            height: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div>正常文本流现实</div>
+    <div class="pop_windows">
+        <div class="pop_mask"></div>
+        <div class="pop_content">
+            <div class="content_box">
+                我是弹窗的内容
+            </div>
+            <div class="content_close">关闭</div>
+        </div>
+    </div>
+</body>
+</html>
